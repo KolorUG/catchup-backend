@@ -21,7 +21,7 @@ namespace CatchUp.Models.Roles
     {
         public void Configure(EntityTypeBuilder<Student> b)
         {
-            //to do fluent api
+            
         }
     }
 }
