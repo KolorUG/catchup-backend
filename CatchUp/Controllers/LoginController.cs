@@ -1,3 +1,4 @@
+using CatchUp.Models.Roles;
 using Microsoft.AspNetCore.Mvc;
 using CatchUp.ReposInterfaces;
 
@@ -17,6 +18,8 @@ namespace CatchUp.Controllers
         public ActionResult Login([FromBody]string login, string password)
         {
             IUser user = _loginRepository.GetUserByLogin(login);
+
+            if(user.)
         }
     }
 }

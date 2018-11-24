@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CatchUp.Models.Roles
 {
-    public class Student : BaseEntity, IUser
+    public class Student : BaseEntity
     {
         public int AddressId { get; set; }
         public virtual Address Address { get; set; }
