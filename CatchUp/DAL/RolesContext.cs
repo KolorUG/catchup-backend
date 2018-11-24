@@ -6,6 +6,10 @@ namespace CatchUp.DAL
 {
     public class RolesContext : DbContext
     {
+        public RolesContext(DbContextOptions<RolesContext> options)
+        {
+            
+        }
         DbSet<Address> Addresses {get; set; }
         DbSet<Graphic> Graphics {get; set ;}
         DbSet<Reward> Rewards {get; set ;}
