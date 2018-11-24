@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CatchUp.Models.Roles
 {
-    public class Teacher : BaseEntity
+    public class Teacher : BaseEntity, IUser
     {
         public int AddressId { get; set; }
         public virtual Address Address { get; set;}
@@ -17,15 +17,9 @@ namespace CatchUp.Models.Roles
         public String Description { get; set; }
         public ICollection<Offer> Offers { get; set; }
         public ICollection<Rating> Ratings { get; set; }
-        public ICollection<Graphic> Graphic { get; set; }
+        public ICollection<Schedule> Schedule { get; set; }
         public ICollection<Order> Orders { get; set; }
     }
 
-    public class TeacherMap : IEntityTypeConfiguration<Teacher>
-    {
-        public void Configure(EntityTypeBuilder<Teacher> b)
-        {
-            //to do 
-        }
-    }
+    
 }

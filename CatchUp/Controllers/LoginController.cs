@@ -15,7 +15,7 @@ namespace CatchUp.Controllers
         [HttpGet]
         public ActionResult Login([FromBody]string login, string password)
         {
-            
+            IUser user = _loginRepository.GetUserByLogin(login);
         }
     }
 }

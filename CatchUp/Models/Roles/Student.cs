@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CatchUp.Models.Roles
 {
-    public class Student : BaseEntity
+    public class Student : BaseEntity, IUser
     {
         public int AddressId { get; set; }
         public virtual Address Address { get; set; }
@@ -16,11 +16,5 @@ namespace CatchUp.Models.Roles
         public ICollection<Order> Orders { get; set; }
     }
 
-    public class StudentMap : IEntityTypeConfiguration<Student>
-    {
-        public void Configure(EntityTypeBuilder<Student> b)
-        {
-            
-        }
-    }
+    
 }
