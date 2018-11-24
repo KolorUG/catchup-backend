@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using CatchUp.DAL;
+using CatchUp.DbContexts;
 using CatchUp.Models.Offers;
 using CatchUp.ReposInterfaces;
 using Microsoft.EntityFrameworkCore;

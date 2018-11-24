@@ -14,12 +14,12 @@ namespace CatchUp.Controllers
         {
             this._loginRepository = loginRepository;
         }
-        [HttpGet]
-        public ActionResult Login([FromBody]string login, string password)
-        {
-            IUser user = _loginRepository.GetUserByLogin(login);
+        //[HttpGet]
+        //public ActionResult Login([FromBody]string login, string password)
+        //{
+        //    IUser user = _loginRepository.GetUserByLogin(login);
 
-            if(user.)
-        }
+        //    if(user.)
+        //}
     }
 }

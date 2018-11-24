@@ -6,9 +6,7 @@ namespace CatchUp.Models.Offers
 {
     public class Subject : BaseEntity
     {
-        public int SubjectTypeId { get; set; }
         public virtual SubjectType SubjectType { get; set; }
-        public int LevelId { get; set; }
         public virtual Level Level { get; set; }
         public decimal Price { get; set; }
         public int LessonMinutes {get; set; }
@@ -22,9 +20,8 @@ namespace CatchUp.Models.Offers
         }
     }
 
-    public class SubjectType
+    public class SubjectType : BaseEntity
     {
-        public int Id { get; set; }
         public String SubjectName { get; set; }
     }
 
@@ -36,9 +33,8 @@ namespace CatchUp.Models.Offers
         }
     }
 
-    public class Level
+    public class Level : BaseEntity
     {
-        public int Id { get; set; }
         public String LevelName { get; set; }
     }
 

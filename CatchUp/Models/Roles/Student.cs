@@ -12,9 +12,18 @@ namespace CatchUp.Models.Roles
         public virtual Address Address { get; set; }
         public String Name { get; set; }
         public String Surname { get; set; }
-        public ICollection<Rating> Ratings { get; set; }
-        public ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Rating> Ratings { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
+    }
+    public class StudentMap : IEntityTypeConfiguration<Student>
+    {
+        public void Configure(EntityTypeBuilder<Student> b)
+        {
+            b.HasKey(s => s.Id);
+            b.Property(s => s.Name).HasColumnType("varchar").HasMaxLength(15).IsRequired();
+            b.Property(s => s.Surname).HasColumnType("varchar").HasMaxLength(20).IsRequired();
+            b.HasOne(s => s.Address).WithOne(a => a.Student);
+        }
     }
 
-    
 }

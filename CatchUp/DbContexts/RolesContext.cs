@@ -2,7 +2,7 @@ using CatchUp.Models.Lessons;
 using Microsoft.EntityFrameworkCore;
 using CatchUp.Models.Roles;
 
-namespace CatchUp.DAL
+namespace CatchUp.DbContexts
 {
     public class RolesContext : DbContext
     {
@@ -18,5 +18,14 @@ namespace CatchUp.DAL
         DbSet<Student> Students {get; set ;}
         DbSet<Teacher> Teachers {get; set ;}
         DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfiguration(new AddressMap());
+            builder.ApplyConfiguration(new RoleMap());
+            builder.ApplyConfiguration(new ScheduleMap());
+            builder.ApplyConfiguration(new TeacherMap());
+            builder.ApplyConfiguration(new StudentMap());
+        }
     }
 }

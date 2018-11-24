@@ -1,7 +1,7 @@
 using CatchUp.Models.Lessons;
 using Microsoft.EntityFrameworkCore;
 
-namespace CatchUp.DAL
+namespace CatchUp.DbContexts
 {
     public class LessonsContext : DbContext
     {
@@ -15,9 +15,11 @@ namespace CatchUp.DAL
         public DbSet<Order> Orders{ get; set; }
         public DbSet<Rating> Rating { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-
+            builder.ApplyConfiguration(new LessonMap());
+            builder.ApplyConfiguration(new OrderMap());
+            builder.ApplyConfiguration(new RatingMap());
         }
     }
 }

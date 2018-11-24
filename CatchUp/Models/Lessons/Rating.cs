@@ -7,14 +7,10 @@ namespace CatchUp.Models.Lessons
 {
     public class Rating : BaseEntity
     {
-        public int LessonId { get; set; }
         public virtual Lesson Lesson {get; set;}
-        public int RoleId { get; set; }
         public virtual Role Role { get; set; }
         public short Rate { get; set; }
-        public int StudentId { get; set; }
         public virtual Student Student { get; set; }
-        public int TeacherId { get; set; }
         public virtual Teacher Teacher { get; set; }
     }
 
@@ -22,7 +18,12 @@ namespace CatchUp.Models.Lessons
     {
         public void Configure(EntityTypeBuilder<Rating> b)
         {
-            // to do fluent api
+            b.HasKey(r => r.Id);
+            b.HasOne(r => r.Lesson).WithMany(l => l.Ratings);
+            b.HasOne(r => r.Role).WithMany(ro => ro.Ratings);
+            b.Property(r => r.Rate).HasMaxLength(1).IsRequired();
+            b.HasOne(r => r.Student).WithMany(s => s.Ratings);
+            b.HasOne(r => r.Teacher).WithMany(t => t.Ratings);
         }
     }
 }

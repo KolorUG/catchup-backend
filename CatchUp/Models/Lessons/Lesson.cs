@@ -2,13 +2,14 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace CatchUp.Models.Lessons
 {
     public class Lesson : BaseEntity
     {
-        public int OrderId { get; set; }
         public virtual Order Order { get; set; }
+        public virtual ICollection<Rating> Ratings { get; set; }
     }
 
     public class LessonMap : IEntityTypeConfiguration<Lesson>
@@ -16,11 +17,8 @@ namespace CatchUp.Models.Lessons
         public void Configure(EntityTypeBuilder<Lesson> b)
         {
             b.HasKey(l => l.Id);
+            b.HasOne(l => l.Order).WithMany(o => o.Lessons);
             b.Property(l => l.Id).UseSqlServerIdentityColumn();
-            //b.Property(l => l.Id).ForSqlServerUseSequenceHiLo<int>("DbSequence").StartsAt(1).IncremetsBy(1);
-            b.Property(l => l.OrderId);
-            b.Property(l => l.Order).IsRequired();
-            b.HasOne(l => l.Order);
         }
     }
 }
