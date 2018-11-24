@@ -4,9 +4,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CatchUp.Models.Offers
 {
-    public class Subject
+    public class Subject : BaseEntity
     {
-        public int Id { get; set; }
         public int SubjectTypeId { get; set; }
         public virtual SubjectType SubjectType { get; set; }
         public int LevelId { get; set; }

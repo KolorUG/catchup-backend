@@ -5,9 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CatchUp.Models.Lessons
 {
-    public class Lesson
+    public class Lesson : BaseEntity
     {
-        public Guid Id { get; set; }
         public int OrderId { get; set; }
         public virtual Order Order { get; set; }
     }

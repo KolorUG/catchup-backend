@@ -6,9 +6,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CatchUp.Models.Lessons
 {
-    public class Order
+    public class Order : BaseEntity
     {
-        public int Id { get; set; }
         public int StudentId { get; set; }
         public virtual Student Student { get; set; }
         public int TeacherId { get; set; }

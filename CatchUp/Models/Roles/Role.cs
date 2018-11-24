@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace CatchUp.Models.Roles
 {
-    public class Role
+    public class Role : BaseEntity
     {
-        public int Id { get; set; }
         public String RoleType { get; set; }
     }
 }

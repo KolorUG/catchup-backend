@@ -8,9 +8,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CatchUp.Models.Roles
 {
-    public class Teacher
+    public class Teacher : BaseEntity
     {
-        public int Id { get; set; }
         public int AddressId { get; set; }
         public virtual Address Address { get; set;}
         public String Name { get; set; }

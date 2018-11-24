@@ -6,9 +6,10 @@ namespace CatchUp.DAL
 {
     public class OffersContext : DbContext
     {
-        public OffersContext(DbContextOptions<OffersContext> optins)
+        public OffersContext(DbContextOptions<OffersContext> options)
+            :base(options)
         {
-            
+
         }
 
         public DbSet<Offer> Offers {get; set; }
