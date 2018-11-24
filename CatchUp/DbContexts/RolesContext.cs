@@ -13,7 +13,6 @@ namespace CatchUp.DbContexts
         }
         DbSet<Address> Addresses {get; set; }
         DbSet<Schedule> Schedule {get; set ;}
-        DbSet<Schedule> Graphics {get; set ;}
         DbSet<Role> Role {get; set ;}
         DbSet<Student> Students {get; set ;}
         DbSet<Teacher> Teachers {get; set ;}
@@ -21,11 +20,11 @@ namespace CatchUp.DbContexts
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfiguration(new AddressMap());
-            builder.ApplyConfiguration(new RoleMap());
-            builder.ApplyConfiguration(new ScheduleMap());
-            builder.ApplyConfiguration(new TeacherMap());
-            builder.ApplyConfiguration(new StudentMap());
+            //builder.ApplyConfiguration(new AddressMap());
+            //builder.ApplyConfiguration(new RoleMap());
+            //builder.ApplyConfiguration(new ScheduleMap());
+            //builder.ApplyConfiguration(new TeacherMap());
+            //builder.ApplyConfiguration(new StudentMap());
         }
     }
 }

@@ -1,13 +1,16 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
 namespace CatchUp.Models.Roles
 {
     public class Schedule : BaseEntity
     {
-        public virtual Teacher Teacher { get; set; }
+        [ForeignKey("Teacher")]
+        public int TeacherId { get; set; }
+        //public virtual Teacher Teacher { get; set; }
         public int Day { get; set; }
         [MinLength(5),MaxLength(5)]
         public String Begining { get; set; }

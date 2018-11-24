@@ -1,13 +1,18 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CatchUp.Models.Offers
 {
     public class Subject : BaseEntity
     {
-        public virtual SubjectType SubjectType { get; set; }
-        public virtual Level Level { get; set; }
+        [ForeignKey("SubjectType")]
+        public int SubjectTypeId { get; set; }
+        [ForeignKey("Level")]
+        public int Leveld { get; set; }
+       // public virtual SubjectType SubjectType { get; set; }
+       // public virtual Level Level { get; set; }
         public decimal Price { get; set; }
         public int LessonMinutes {get; set; }
     }

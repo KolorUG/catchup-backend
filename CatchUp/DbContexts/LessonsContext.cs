@@ -17,9 +17,9 @@ namespace CatchUp.DbContexts
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfiguration(new LessonMap());
-            builder.ApplyConfiguration(new OrderMap());
-            builder.ApplyConfiguration(new RatingMap());
+        //    builder.ApplyConfiguration(new LessonMap());
+        //    builder.ApplyConfiguration(new OrderMap());
+        //    builder.ApplyConfiguration(new RatingMap());
         }
     }
 }

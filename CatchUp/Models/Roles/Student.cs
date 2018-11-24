@@ -3,13 +3,14 @@ using CatchUp.Models.Lessons;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CatchUp.Models.Roles
 {
     public class Student : BaseEntity
     {
+        [ForeignKey("Address")]
         public int AddressId { get; set; }
-        public virtual Address Address { get; set; }
         public String Name { get; set; }
         public String Surname { get; set; }
         public virtual ICollection<Rating> Ratings { get; set; }
@@ -22,7 +23,7 @@ namespace CatchUp.Models.Roles
             b.HasKey(s => s.Id);
             b.Property(s => s.Name).HasColumnType("varchar").HasMaxLength(15).IsRequired();
             b.Property(s => s.Surname).HasColumnType("varchar").HasMaxLength(20).IsRequired();
-            b.HasOne(s => s.Address).WithOne(a => a.Student);
+            //b.HasOne(s => s.Address).WithOne(a => a.Student);
         }
     }
 

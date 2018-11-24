@@ -13,9 +13,7 @@ namespace CatchUp.Models.Roles
         public String Flat { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
-        public virtual Teacher Teacher { get; set; }
-        public virtual Student Student { get; set; }
-    }
+     }
     public class AddressMap : IEntityTypeConfiguration<Address>
     {
         public void Configure(EntityTypeBuilder<Address> b)

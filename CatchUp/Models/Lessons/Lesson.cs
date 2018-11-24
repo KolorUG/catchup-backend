@@ -8,16 +8,19 @@ namespace CatchUp.Models.Lessons
 {
     public class Lesson : BaseEntity
     {
-        public virtual Order Order { get; set; }
-        public virtual ICollection<Rating> Ratings { get; set; }
+        [ForeignKey("Order")]
+        public int OrderId { get; set; }
+       // public virtual Order Order { get; set; }
+        //public virtual ICollection<Rating> Ratings { get; set; }
     }
 
     public class LessonMap : IEntityTypeConfiguration<Lesson>
     {
         public void Configure(EntityTypeBuilder<Lesson> b)
         {
+            
             b.HasKey(l => l.Id);
-            b.HasOne(l => l.Order).WithMany(o => o.Lessons);
+           // b.HasOne(l => l.Order).WithMany(o => o.Lessons);
             b.Property(l => l.Id).UseSqlServerIdentityColumn();
         }
     }
