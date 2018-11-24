@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CatchUp.Repositories
 {
-    public class LesssonRepository : EfRepository<Lesson> ,ILessonRepository
+    public class LessonRepository : EfRepository<Lesson> ,ILessonRepository
     {
         public LessonRepository(RolesContext dbContext) : base(dbContext)
         {
