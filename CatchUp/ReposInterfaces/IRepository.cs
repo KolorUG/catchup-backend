@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using CatchUp.Models;
 
-namespace CatchUp.Repositories
+namespace CatchUp.ReposInterfaces
 {
     public interface IRepository<T> where T : BaseEntity
     {

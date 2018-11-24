@@ -17,7 +17,7 @@ namespace CatchUp.Models.Roles
         public String Description { get; set; }
         public ICollection<Offer> Offers { get; set; }
         public ICollection<Rating> Ratings { get; set; }
-        public ICollection<Graphic> Graphic { get; set; }
+        public ICollection<Schedule> Graphic { get; set; }
         public ICollection<Order> Orders { get; set; }
     }
 

@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using CatchUp.Models.Roles;
 
-namespace CatchUp.Repositories
+namespace CatchUp.ReposInterfaces
 {
     public interface IAddressRepository : IRepository<Address>
     {

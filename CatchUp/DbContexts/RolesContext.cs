@@ -12,7 +12,7 @@ namespace CatchUp.DAL
             
         }
         DbSet<Address> Addresses {get; set; }
-        DbSet<Graphic> Graphics {get; set ;}
+        DbSet<Schedule> Graphics {get; set ;}
         DbSet<Role> Role {get; set ;}
         DbSet<Student> Students {get; set ;}
         DbSet<Teacher> Teachers {get; set ;}

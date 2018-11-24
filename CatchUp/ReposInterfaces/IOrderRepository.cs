@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using CatchUp.Models.Lessons;
 
-namespace CatchUp.Repositories
+namespace CatchUp.ReposInterfaces
 {
     public interface IOrderRepository : IRepository<Order>
     {
