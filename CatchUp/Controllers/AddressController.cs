@@ -6,21 +6,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CatchUp.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class Address : ControllerBase
-    {
-        private readonly IAddressRepository _addressReposity;
+    //[Route("api/[controller]")]
+    //[ApiController]
+    //public class Address : ControllerBase
+    //{
+    //    private readonly IAddressRepository _addressReposity;
 
-        public Address(IAddressRepository addressRepository)
-        {
-            _addressReposity = addressRepository;
-        }
+    //    public Address(IAddressRepository addressRepository)
+    //    {
+    //        _addressReposity = addressRepository;
+    //    }
         
-        [HttpPost]
-        public ActionResult Add([FromBody]Address address)
-        {
+    //    [HttpPost]
+    //    public ActionResult Add([FromBody]Address address)
+    //    {
             
-        }
-    }
+    //    }
+//    }
 }
