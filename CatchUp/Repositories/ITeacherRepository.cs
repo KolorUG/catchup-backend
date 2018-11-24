@@ -3,7 +3,7 @@ using CatchUp.Models.Roles;
 
 namespace CatchUp.Repositories
 {
-    public interface IAddressRepository : IRepository<Address>
+    public interface ITeacherRepository : IRepository<Teacher>
     {
     }
 }
