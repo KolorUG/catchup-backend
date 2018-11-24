@@ -11,8 +11,8 @@ namespace CatchUp.Models.Offers
         public virtual SubjectType SubjectType { get; set; }
         public int LevelId { get; set; }
         public virtual Level Level { get; set; }
-        public int PriceId { get; set; }
-        public virtual Price Price { get; set; }
+        public decimal Price { get; set; }
+        public int LessonMinutes {get; set; }
     }
 
     public class SubjectMap : IEntityTypeConfiguration<Subject>
@@ -46,21 +46,6 @@ namespace CatchUp.Models.Offers
     public class LevelMap : IEntityTypeConfiguration<Level>
     {
         public void Configure(EntityTypeBuilder<Level> b)
-        {
-            //to do fluent api
-        }
-    }
-
-    public class Price
-    {
-        public int Id { get; set; }
-        public decimal PriceOfLesson { get; set; }
-        public int Time { get; set; } //time in minutes
-    }
-
-    public class PriceMap : IEntityTypeConfiguration<Price>
-    {
-        public void Configure(EntityTypeBuilder<Price> b)
         {
             //to do fluent api
         }
