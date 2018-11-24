@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CatchUp.Migrations
 {
     [DbContext(typeof(LessonsContext))]
-    [Migration("20181124141638_InitialCreate")]
+    [Migration("20181124142824_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,8 +23,9 @@ namespace CatchUp.Migrations
 
             modelBuilder.Entity("CatchUp.Models.Lessons.Lesson", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("OrderId");
 
@@ -72,8 +73,6 @@ namespace CatchUp.Migrations
 
                     b.Property<int>("LessonId");
 
-                    b.Property<Guid?>("LessonId1");
-
                     b.Property<short>("Rate");
 
                     b.Property<int>("RoleId");
@@ -84,7 +83,7 @@ namespace CatchUp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LessonId1");
+                    b.HasIndex("LessonId");
 
                     b.HasIndex("RoleId");
 
@@ -301,7 +300,8 @@ namespace CatchUp.Migrations
                 {
                     b.HasOne("CatchUp.Models.Lessons.Lesson", "Lesson")
                         .WithMany()
-                        .HasForeignKey("LessonId1");
+                        .HasForeignKey("LessonId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("CatchUp.Models.Roles.Role", "Role")
                         .WithMany()

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace CatchUp.Migrations.Lessons
+namespace CatchUp.Migrations
 {
     [DbContext(typeof(LessonsContext))]
     partial class LessonsContextModelSnapshot : ModelSnapshot
@@ -21,8 +21,9 @@ namespace CatchUp.Migrations.Lessons
 
             modelBuilder.Entity("CatchUp.Models.Lessons.Lesson", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("OrderId");
 
@@ -70,8 +71,6 @@ namespace CatchUp.Migrations.Lessons
 
                     b.Property<int>("LessonId");
 
-                    b.Property<Guid?>("LessonId1");
-
                     b.Property<short>("Rate");
 
                     b.Property<int>("RoleId");
@@ -82,7 +81,7 @@ namespace CatchUp.Migrations.Lessons
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LessonId1");
+                    b.HasIndex("LessonId");
 
                     b.HasIndex("RoleId");
 
@@ -299,7 +298,8 @@ namespace CatchUp.Migrations.Lessons
                 {
                     b.HasOne("CatchUp.Models.Lessons.Lesson", "Lesson")
                         .WithMany()
-                        .HasForeignKey("LessonId1");
+                        .HasForeignKey("LessonId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("CatchUp.Models.Roles.Role", "Role")
                         .WithMany()

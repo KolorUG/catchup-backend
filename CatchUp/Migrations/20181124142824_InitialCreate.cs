@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CatchUp.Migrations.Lessons
+namespace CatchUp.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -232,7 +232,8 @@ namespace CatchUp.Migrations.Lessons
                 name: "Lessons",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     OrderId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -253,7 +254,6 @@ namespace CatchUp.Migrations.Lessons
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     LessonId = table.Column<int>(nullable: false),
-                    LessonId1 = table.Column<Guid>(nullable: true),
                     RoleId = table.Column<int>(nullable: false),
                     Rate = table.Column<short>(nullable: false),
                     StudentId = table.Column<int>(nullable: false),
@@ -263,11 +263,11 @@ namespace CatchUp.Migrations.Lessons
                 {
                     table.PrimaryKey("PK_Rating", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Rating_Lessons_LessonId1",
-                        column: x => x.LessonId1,
+                        name: "FK_Rating_Lessons_LessonId",
+                        column: x => x.LessonId,
                         principalTable: "Lessons",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Rating_Role_RoleId",
                         column: x => x.RoleId,
@@ -324,9 +324,9 @@ namespace CatchUp.Migrations.Lessons
                 column: "TeacherId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Rating_LessonId1",
+                name: "IX_Rating_LessonId",
                 table: "Rating",
-                column: "LessonId1");
+                column: "LessonId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Rating_RoleId",

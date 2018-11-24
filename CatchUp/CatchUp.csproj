@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <AutoGenerateBindingRedirects>\</AutoGenerateBindingRedirects>
+    <UserSecretsId>01e59498-c8af-4843-bcfe-548b1dd7d850</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
