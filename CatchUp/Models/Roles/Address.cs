@@ -4,9 +4,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CatchUp.Models.Roles
 {
-    public class Address
+    public class Address : BaseEntity
     {
-        public int Id { get; set; }
         public String City { get; set; }
         public String PostalCode { get; set; }
         public String Street { get; set; }

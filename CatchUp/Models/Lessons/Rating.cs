@@ -5,9 +5,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CatchUp.Models.Lessons
 {
-    public class Rating
+    public class Rating : BaseEntity
     {
-        public int Id { get; set; }
         public int LessonId { get; set; }
         public virtual Lesson Lesson {get; set;}
         public int RoleId { get; set; }
