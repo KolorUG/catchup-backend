@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using CatchUp.Models.Offers;
 
-namespace CatchUp.Repositories
+namespace CatchUp.ReposInterfaces
 {
     public interface ISubjectRepository : IRepository<Subject>
     {
